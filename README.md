@@ -1,3 +1,4 @@
+```yaml
 version: '3.7'
 
 services:
@@ -29,4 +30,5 @@ networks:
 
 volumes:
   postgres_data:
-    external: false
+    external: false 
+    
