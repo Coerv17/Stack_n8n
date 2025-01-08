@@ -33,3 +33,5 @@ volumes:
     external: false 
  ````
 para conseguir pegar o link do webwook nao pode ser locahost tem que passar o ip da maquina como podemos observa ali  - N8N_HOST=192.168.56.1  # Use o IP da sua máquina, se necessário
+
+para conectar o n8n no postgres voce deve seguir os passo, ir no conaniner ir em  inspect > networks e pega o "IPAddress": "172.18.0.8",
