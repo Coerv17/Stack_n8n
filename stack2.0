@@ -1,0 +1,38 @@
+```yaml
+version: '3.8'
+
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    restart: always
+    environment:
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+      - N8N_REINSTALL_MISSING_PACKAGES=true
+      - N8N_HOST=192.168.56.1  # Use o IP da sua máquina, se necessário
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - NODE_ENV=production
+      - WEBHOOK_URL=http://192.168.56.1:5678  # Ajuste conforme o IP da sua máquina
+      - GENERIC_TIMEZONE=America/Sao_Paulo
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=my_postgres # Nome do serviço do PostgreSQL no Docker Compose
+      - DB_POSTGRESDB_PORT=5432  # A porta interna do contêiner PostgreSQL
+      - DB_POSTGRESDB_DATABASE=n8n1
+      - DB_POSTGRESDB_USER=postgres
+      - DB_POSTGRESDB_PASSWORD=postgres
+      - ENCRYPTION_KEY=ZImZrTyrxWKsZ3jM03I42T7dz0ApA07y
+    volumes:
+      - n8n_data:/root/.n8n
+      - n8n_files:/files
+    ports:
+      - "5678:5678"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    external: true
+
+volumes:
+  n8n_data: {}
+  n8n_files: {}
