@@ -31,4 +31,5 @@ networks:
 volumes:
   postgres_data:
     external: false 
-    
+ ````
+para conseguir pegar o link do webwook nao pode ser locahost tem que passar o ip da maquina como podemos observa ali  - N8N_HOST=192.168.56.1  # Use o IP da sua máquina, se necessário
